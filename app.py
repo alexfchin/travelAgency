@@ -28,7 +28,7 @@ def signUp():
     # read the posted values from the UI
     _name = request.form['inputName']
     _email = request.form['inputEmail']
-    _password = request.form['inputPassword']b
+    _password = request.form['inputPassword']
     _groupname = request.form['inputGroup']
     print(_name + " " + _email + " " + _password)
     #execute sql query
