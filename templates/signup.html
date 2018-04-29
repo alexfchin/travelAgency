@@ -27,25 +27,23 @@
       </div>
 
       <div class="jumbotron">
-        <h1>Bucket List App</h1>
-        <form class="form-signin">
-        <label for="inputName" class="sr-only">Name</label>
-        <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Name" required autofocus>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
-        <label for="inputGroup" class="sr-only">Group Name (optional)</label>
-        <input type="group" name="inputPassword" id="inputGroup" class="form-control" placeholder="Group Name (Optional)">
-        <!--<button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button">Sign up</button>-->
-      </form>
+        <h2>Sign Up</h2>
+        <input type="text" id="username" required="required" placeholder="Username">
+        <input type="text" id="password" required="required" placeholder="Password">
+        <input type="text" id="email" required="required" placeholder="Email" >
+        <input type="text" id="group" placeholder="Group Name (Optional)" >
+
+		<button onClick=signup()>Sign up</Button>
+
+		<h2>Sign In</h2>
+
+		    <input type="text" id="login_name" required="required" placeholder="Username">
+		    <input type="text" id="login_pass" required="required" placeholder="Password">
+			<button onClick=login()>Log In</Button>
       </div>
 
 
-        <input type="text" id="username" required="required" placeholder="Username">
-        <input type="text" id="password" required="required" placeholder="Password">
-        <input type="text" id="email" required="required" placeholder="Email">
-        <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button">Sign up</button>
+
 
 
 

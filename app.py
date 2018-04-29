@@ -43,10 +43,11 @@ def signUp():
         return json.dumps({'error': str(data[0])})
 
 
-@app.route("/Authenticate")
+@app.route("/login", methods=['POST'])
 def Authenticate():
     username = request.args.get('UserName')
     password = request.args.get('Password')
+    data = 0
     if data is None:
      return "Username or Password is wrong"
     else:
