@@ -28,29 +28,33 @@
 
       <div class="jumbotron">
         <h2>Sign Up</h2>
-        <input type="text" id="username" required="required" placeholder="Username">
-        <input type="text" id="password" required="required" placeholder="Password">
-        <input type="text" id="email" required="required" placeholder="Email" >
-        <input type="text" id="group" placeholder="Group Name (Optional)" >
+        <form action = "/signUp" method = "POST">
+          <input type="text" name="username" required="required" placeholder="Username" onfocus="this.value=''">
+          <input type="password" name="password" required="required" placeholder="Password" onfocus="this.value=''">
+          <input type="text" name="email" required="required" placeholder="Email" onfocus="this.value=''">
+          <input type="text" name="group" placeholder="Group Name (Optional)" onfocus="this.value=''">
+          <button class="btn btn-lg btn-primary btn-block" type="submit" value="submit">Submit</button>
+        </form>
 
-		<button onClick=signup()>Sign up</Button>
-
-		<h2>Sign In</h2>
-
-		    <input type="text" id="login_name" required="required" placeholder="Username">
-		    <input type="text" id="login_pass" required="required" placeholder="Password">
-			<button onClick=login()>Log In</Button>
+        <h2>Login</h2>
+        <form action = "/login" method = "POST">
+          <input type="text" name="login_username" required="required" placeholder="Username" onfocus="this.value=''">
+          <input type="password" name="login_password" required="required" placeholder="Password" onfocus="this.value=''">
+          <button class="btn btn-lg btn-primary btn-block"><input type = "submit" value = "submit"/></button>
+        </form>
       </div>
 
-
-
-
-
-
       <footer class="footer">
-        <p>&copy; Company 2015</p>
+        <p>&copy; CSE305 Spring 2018</p>
       </footer>
 
     </div>
+
+  <form action = "/signUp" method = "POST">
+         <p>Name <input type = "text" name = "name" /></p>
+         <p><input type = "submit" value = "submit" /></p>
+  </form>
+
+
   </body>
 </html>

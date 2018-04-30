@@ -11,8 +11,13 @@ app.config['MYSQL_DATABASE_DB'] = 'TravelAgency'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
+#cursor to perform sql operations
 conn = mysql.connect()
 cursor = conn.cursor()
+
+create_passenger = ("INSERT INTO Passengers "
+               "(PassengerName, Email, Password, GroupName) "
+               "VALUES (%s, %s, %s, %s)")
 
 @app.route("/")
 def index():
@@ -26,25 +31,23 @@ def showSignUp():
 @app.route('/signUp', methods=['POST'])
 def signUp():
     # read the posted values from the UI
-    _name = request.form['inputName']
-    _email = request.form['inputEmail']
-    _password = request.form['inputPassword']
-    _groupname = request.form['inputGroup']
-    print(_name + " " + _email + " " + _password)
+    _name = request.form['username']
+    _password = request.form['password']
+    _email = request.form['email']
+    _groupname = request.form['group']
+    passenger_data = (_name,_password, _email, _groupname)
     #execute sql query
-    cursor = mysql.connect().cursor()
-    cursor.execute("")
 
-    data = cursor.fetchall() #transaction check
-    if len(data) is 0:
-        conn.commit() #commit change to the database
-        return json.dumps({'message': 'User created successfully !'})
-    else:
-        return json.dumps({'error': str(data[0])})
+    cursor.execute(create_passenger,passenger_data)
+    conn.commit() #commits to the db
+    data = cursor.fetchOne()
+    print(data)
+
+    return "CREATED ACCOUNT"
 
 
 @app.route("/login", methods=['POST'])
-def Authenticate():
+def login():
     username = request.args.get('UserName')
     password = request.args.get('Password')
     data = 0
@@ -53,5 +56,11 @@ def Authenticate():
     else:
      return "Logged in successfully"
 
+
+@app.route("/test", methods=['POST'])
+def test():
+    _name = request.form['name']
+    print(_name)
+    return "OK"
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True)
