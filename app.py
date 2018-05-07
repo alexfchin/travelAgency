@@ -58,16 +58,22 @@ def showTransportation():
 def payment():
     _id = request.form['id']
     print(_id)
-    return render_template('index.html')
+    return render_template('Payment.html')
 
+@app.route('/confirmPayment', methods=['POST'])
+def confirmPayment(): #add passenger to sql db
+    _transportationType = request.form['transportType']
+    _transportationID = request.form['transportID']
+    _cardNumber = request.form['cardNumber']
+    _cardHolder = request.form['cardHolder']
+    _month = request.form['month']
+    _year = request.form['year']
+    _svc = request.form['svc']
 
-@app.route('/cruises')
-def cruises():
-    return render_template('Cruises.html')
+    cursor.execute(create_passenger,passenger_data)
+    conn.commit() #commits to the db
 
-@app.route('/cars')
-def cars():
-    return render_template('Cars.html')
+    return render_template('Payment.html')
 
 
 @app.route('/signUp', methods=['POST'])
@@ -82,7 +88,6 @@ def signUp():
 
     cursor.execute(create_passenger,passenger_data)
     conn.commit() #commits to the db
-    data = cursor.fetchOne()
     print(data)
 
     return "CREATED ACCOUNT"
