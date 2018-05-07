@@ -27,6 +27,10 @@ def index():
 def showSignUp():
     return render_template('signup.html')
 
+@app.route('/transportation')
+def transportation():
+    return render_template('transportation.html')
+
 @app.route('/flights')
 def flights():
     return render_template('Flights.html')
