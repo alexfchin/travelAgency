@@ -18,6 +18,7 @@ cursor = conn.cursor()
 create_passenger = ("INSERT INTO Passengers "
                "(PassengerName, Email, Password, GroupName) "
                "VALUES (%s, %s, %s, %s)")
+select_transportation = ("SELECT * FROM %s")
 
 @app.route("/")
 def index():
@@ -27,13 +28,21 @@ def index():
 def showSignUp():
     return render_template('signup.html')
 
-@app.route('/transportation')
-def transportation():
-    return render_template('transportation.html')
-
 @app.route('/flights')
 def flights():
     return render_template('Flights.html')
+
+
+@app.route("/showTransportation") #grab from database and display values
+def showTransportation():
+    #send what type of thing
+
+    cur = conn.cursor()
+    cur.execute(select_transportation, "Passengers")
+    data = cur.fetchall()
+    return render_template('test.html', data=data)
+
+
 
 @app.route('/deals')
 def deals():
@@ -66,22 +75,6 @@ def signUp():
     return "CREATED ACCOUNT"
 
 
-@app.route("/login", methods=['POST'])
-def login():
-    username = request.args.get('UserName')
-    password = request.args.get('Password')
-    data = 0
-    if data is None:
-     return "Username or Password is wrong"
-    else:
-     return "Logged in successfully"
-
-@app.route("/showTransportation", methods=['GET']) #grab from database and display values
-def showTransportation():
-    cur = conn.cursor()
-    cur.execute("SELECT * FROM Passengers")
-    data = cur.fetchall()
-    return render_template('template.html', data=data)
 
 
 
