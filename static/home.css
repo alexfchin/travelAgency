@@ -1,24 +1,3 @@
-body {
-    background-image: url(background.jpg);
-}
-
-.navbar{
-    padding: 0;
-    padding-top: 20px;
-}
-
-.card {
-    border-radius: 5px;
-    padding: 25px;
-
-    background-color: white;
-
-}
-
-.card h1{
-    color: black;
-}
-
 .from-to {
-    margin-top: 150px;
+    margin-top: 50px;
 }
