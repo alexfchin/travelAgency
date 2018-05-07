@@ -54,6 +54,12 @@ def showTransportation():
     db_data = cursor.fetchall() #get data from cursor
     return render_template('test.html', data=db_data) #pass data into the html
 
+@app.route('/payment', methods=['POST'])
+def payment():
+    _id = request.form['id']
+    print(_id)
+    return render_template('index.html')
+
 
 @app.route('/cruises')
 def cruises():
