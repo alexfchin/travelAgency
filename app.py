@@ -16,9 +16,11 @@ conn = mysql.connect()
 cursor = conn.cursor()
 
 create_passenger = ("INSERT INTO Passengers "
-               "(PassengerName, Email, Password, GroupName) "
-               "VALUES (%s, %s, %s, %s)")
-
+               "(Name, CardNumber, ExpDate, SVC, TransportationType, TransportationID) "
+               "VALUES (%s, %s, %s, %s, %s, %s)")
+write_review = ("INSERT INTO Reviews "
+               "(Name, Stars, Content) "
+               "VALUES (%s, %s, %s)")
 @app.route("/")
 def index():
     return render_template('index.html')
@@ -71,29 +73,26 @@ def confirmPayment(): #add passenger to sql db
     _year = request.form['year']
     _svc = request.form['svc']
 
+    _expDate = _month + '/' + _year
+    passenger_data = (_cardHolder, _cardNumber, _expDate, _svc, _transportationType, _transportationID)
     cursor.execute(create_passenger,passenger_data)
     conn.commit() #commits to the db
 
-    return render_template('Payment.html')
+    return render_template('ConfirmPayment.html')
 
+@app.route("/reviews", methods=['GET','POST'])
+def reviews():
+    if request.method == 'POST':
+        _name = request.form['name']
+        _stars = request.form['stars']
+        _content = request.form['content']
+        review_data = (_name, _stars, _content)
+        cursor.execute(write_review, review_data)
 
-@app.route('/signUp', methods=['POST'])
-def signUp():
-    # read the posted values from the UI
-    _name = request.form['username']
-    _password = request.form['password']
-    _email = request.form['email']
-    _groupname = request.form['group']
-    passenger_data = (_name,_password, _email, _groupname)
-    #execute sql query
-
-    cursor.execute(create_passenger,passenger_data)
-    conn.commit() #commits to the db
-    print(data)
-
-    return "CREATED ACCOUNT"
-
-
+        return render_template('Reviews.html')
+    else:
+        #just show the reviews
+        return render_template('Reviews.html')
 
 
 
