@@ -1,20 +1,48 @@
 body {
-    background-image: url(background.jpg);
+    background-image: url(https://www.marcadamus.com/images/xl/Sun-Valley.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+label {
+    font-style: oblique;
+    font-size: 125%;
+    color: #006a80;
+}
+
+.btn {
+    background-color: #00829b;
+    border: none;
 }
 
 .navbar{
     padding: 0;
     padding-top: 20px;
+    
+    opacity: 0.875;
 }
 
 .card {
     border-radius: 5px;
-    padding: 25px;
+    padding: 50px;
 
     background-color: white;
+    opacity: 0.875;
 
 }
 
 .card h1{
-    color: black;
+    color: #006a80;
+}
+
+.card h2 {
+    font-style: oblique;
+}
+
+.option{
+    margin-bottom: 25px;
+}
+
+.radio {
+    margin-bottom: 25px;
 }

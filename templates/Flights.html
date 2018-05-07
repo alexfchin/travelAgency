@@ -1,55 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Flights</title>
-    <link href="../static/main.css" rel="stylesheet">
+    <title>CL Squared Travel Agency</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" type = "text/css" href="../static/main.css">
+    <link rel="stylesheet" type = "text/css" href="../static/home.css">
+
+    <link rel="stylesheet" type = "text/css" href="../static/home.css">
+
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
+
 <body>
-<h1>Flights</h1>
+    <div class="container">
+        <div class="header">
+            <nav class="navbar navbar-light justify-content-between">
+                <ul class="nav nav-tabs">
 
+                    <li class="nav-item"><a class="nav-link active" href="Flights.html">Flights</a></li>
 
-<ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="Flights.html">Flights</a></li>
-    <li><a href="Cruises.html">Cruise</a></li>
-    <li><a href="Cars.html">Cars</a></li>
-    <li class="dropdown">
-        <a href="javascript:void(0)" class="dropbtn">More</a>
-        <div class="dropdown-content">
-            <a href="Deals.html">Deals</a>
-            <a href="Reviews.html">Reviews</a>
+                    <li class="nav-item"><a class="nav-link active" href="Cruises.html">Cruises</a></li>
+
+                    <li class="nav-item"><a class="nav-link active" href="Cruises.html">Reviews</a></li>
+                </ul>
+            </nav>
         </div>
-    </li>
-</ul>
 
-<div>
-    <label>Starting Point</label>
-    <select name="starting">
-        <option value="NY">NY</option>
-        <option value="LA">LA</option>
-    </select>
+        <div class="card">
+            <h1>CL<sup>2</sup> Travel Agency</h1>
+            <h2>Flights</h2>
+        </div>
+        
+        <div class="card from-to">
+<!--            <form>-->
+            <div class="option">
+                <label>Starting Point</label>
+                <select class="form-control" name = "starting">
+                    <option value = "NY">NY</option>
+                    <option value = "LA">LA</option>
+                </select>
+            </div>
 
-    <label>Destination</label>
-    <select name="destination">
-        <option value="NY">NY</option>
-        <option value="LA">LA</option>
-    </select>
-    <br>
-    <label>Depart Date</label>
-    <input type="date" name="departdate">
-    <label>Return Date</label>
-    <input type="date" name="returndate">
-    <br>
-    <label>Flight Type</label>
-    <form>
-  <input type="radio" name="flighttype" value="Economy" checked> Economy
-  <input type="radio" name="flighttype" value="Business"> Business
-  <input type="radio" name="flighttype" value="First Class"> First Class
-        <input type="radio" name="flighttype" value="PremEco"> Premium Economy
-</form>
-    <br>
-<input type="submit" name="go" value="Go">
+            <div  class="option">
+                <label>Destination</label>
+                <select class="form-control" name = "destination">
+                    <option value = "NY">NY</option>
+                    <option value = "LA">LA</option>
+                </select>
+            </div>
+            
+            <div class="option">
+                <label>Depart Date</label>
+                <div class="row">
+                    <div class='col-sm-6'>
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input type='date' name="departuredate" class="form-control" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+            <div class="option">
+                <label>Return Date</label>
+                <div class="row">
+                    <div class='col-sm-6'>
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input type='date' name = "returndate" class="form-control" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+            <div  class="option">
+                <label>Class</label>
+                <form>
+                    <div class=radio>
+                        <input type="radio" name="flighttype" value="Economy" checked> Economy
+                    </div>
+                    <div class=radio>
+                        <input type="radio" name="flighttype" value="Business"> Business
+                    </div>
+                    <div class=radio>
+                        <input type="radio" name="flighttype" value="First Class"> First Class
+                    </div>
+                    <div class=radio>
+                        <input type="radio" name="flighttype" value="PremEco"> Premium Economy
+                    </div>
+                </form>
+            </div>
 
-</div>
+            <button type="submit" name = "go" value = "Go" class="btn btn-primary">Submit</button>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; hi</p>
+        </footer>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
