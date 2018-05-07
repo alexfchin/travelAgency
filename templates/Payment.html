@@ -20,7 +20,7 @@
       <div class="jumbotron">
         <h2>Payment</h2>
         <form action = "/confirmPayment" method = "POST">
-            <input name="trasnportType" type="hidden" value={{request.form.transportType}}>
+            <input name="transportType" type="hidden" value={{request.form.transportType}}>
             <input name="transportID" type="hidden" value={{request.form.transportID}}>
 
             <input type="text" name="cardNumber" required="required" placeholder="Card Number" onfocus="this.value=''">

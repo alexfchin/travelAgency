@@ -37,6 +37,14 @@ def showSignUp():
 def flights():
     return render_template('Flights.html')
 
+@app.route('/cruises')
+def cruise():
+    return render_template('Cruises.html')
+
+@app.route('/hotels')
+def hotels():
+    return render_template('Hotels.html')
+
 
 @app.route("/showTransportation", methods=['POST']) #grab from database and display values
 def showTransportation():
@@ -49,12 +57,10 @@ def showTransportation():
     _class = request.form['class']
 
     transportData = (_transportType, _from, _to, _departDate, _returnDate, _class)
-    print(transportData)
 
 
     select_transportation = ("SELECT * FROM " + _transportType
                              + " WHERE Class = '"+ str(_class)+ "';")
-    print(select_transportation)
     cursor.execute(select_transportation)
 
     db_data = cursor.fetchall() #get data from cursor
