@@ -33,19 +33,13 @@ def index():
 def showSignUp():
     return render_template('signup.html')
 
-<<<<<<< HEAD
 @app.route('/flights')
 def flights():
     return render_template('Flights.html')
-=======
+
 @app.route('/transportation')
 def transportation():
     return render_template('transportation.html')
-
-# @app.route('/flights')
-# def flights():
-#     return render_template('Flights.html')
->>>>>>> richelle
 
 @app.route('/cruises')
 def cruise():
@@ -76,11 +70,13 @@ def showTransportation():
     db_data = cursor.fetchall() #get data from cursor
     return render_template('ShowTransportation.html', data=db_data) #pass data into the html
 
+@app.route("/showTransportation", methods=['POST']) #grab from database and display values
+
+
 @app.route('/payment', methods=['POST'])
 def payment():
     _transportationType = request.form['transportType']
     _transportationID = request.form['transportID']
-    print(_transportationType + "    " + _transportationID)
     return render_template('Payment.html')
 
 @app.route('/confirmPayment', methods=['POST'])
@@ -100,24 +96,23 @@ def confirmPayment(): #add passenger to sql db
 
     return render_template('ConfirmPayment.html')
 
-@app.route("/reviews", methods=['GET','POST'])
+@app.route("/reviews")
 def reviews():
-    if request.method == 'POST':
-        _name = request.form['name']
-        _stars = request.form['stars']
-        _content = request.form['content']
-        review_data = (_name, _stars, _content)
-        cursor.execute(write_review, review_data)
-        cursor.execute("SELECT * FROM Reviews ORDER BY ReviewID DESC;")
-        db_data = cursor.fetchall()  # get data from cursor
-        return render_template('Reviews.html', data=db_data)
-    else:
-        #just show the reviews
-        cursor.execute("SELECT * FROM Reviews ORDER BY ReviewID DESC;")
-        db_data = cursor.fetchall()  # get data from cursor
-        return render_template('Reviews.html', data=db_data)
+    #just show the reviews
+    cursor.execute("SELECT * FROM Reviews ORDER BY ReviewID DESC;")
+    db_data = cursor.fetchall()  # get data from cursor
+    return render_template('Reviews.html', data=db_data)
 
-
+@app.route('/confirmPayment', methods=['POST'])
+def writeReview():
+    _name = request.form['name']
+    _stars = request.form['stars']
+    _content = request.form['content']
+    review_data = (_name, _stars, _content)
+    cursor.execute(write_review, review_data)
+    cursor.execute("SELECT * FROM Reviews ORDER BY ReviewID DESC;")
+    db_data = cursor.fetchall()  # get data from cursor
+    return render_template('Reviews.html', data=db_data)
 
 @app.route("/test", methods=['POST'])
 def test():

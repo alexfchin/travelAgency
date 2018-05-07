@@ -24,8 +24,7 @@
 
 <div>
     <form action="/showHotels" method="POST">
-
-        <label>Starting Point</label>
+        <label>Location</label>
         <select name="location">
             <option value="NY">NY</option>
             <option value="LA">LA</option>
@@ -33,16 +32,10 @@
 
     <br>
 
-        <label>Depart Date</label>
-        <input type="date" name="departDate">
-        <label>Return Date</label>
-        <input type="date" name="returnDate">
-
-    <br>
-        <label>Flight Type</label>
-        <input type="radio" name="class" value="E" checked> Economy
-        <input type="radio" name="class" value="B"> Business
-        <input type="radio" name="class" value="F"> First Class
+        <label>Check In</label>
+        <input type="date" name="in">
+        <label>Check Out</label>
+        <input type="date" name="out">
     <br>
         <input type="submit" name="go" value="Go">
 
