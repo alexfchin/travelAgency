@@ -23,32 +23,37 @@
 </ul>
 
 <div>
-    <label>Starting Point</label>
-    <select name="starting">
-        <option value="NY">NY</option>
-        <option value="LA">LA</option>
-    </select>
+    <form action="/showTransportation" method="POST">
+        <input name="transportType" type="hidden" value="Flights">
 
-    <label>Destination</label>
-    <select name="destination">
-        <option value="NY">NY</option>
-        <option value="LA">LA</option>
-    </select>
+        <label>Starting Point</label>
+        <select name="from">
+            <option value="NY">NY</option>
+            <option value="LA">LA</option>
+        </select>
+        <label>Destination</label>
+        <select name="to">
+            <option value="NY">NYboption>
+            <option value="LA">LA</option>
+        </select>
+
     <br>
-    <label>Depart Date</label>
-    <input type="date" name="departdate">
-    <label>Return Date</label>
-    <input type="date" name="returndate">
+
+        <label>Depart Date</label>
+        <input type="date" name="departDate">
+        <label>Return Date</label>
+        <input type="date" name="returnDate">
+
     <br>
-    <label>Flight Type</label>
-    <form>
-  <input type="radio" name="flighttype" value="Economy" checked> Economy
-  <input type="radio" name="flighttype" value="Business"> Business
-  <input type="radio" name="flighttype" value="First Class"> First Class
-        <input type="radio" name="flighttype" value="PremEco"> Premium Economy
-</form>
+        <label>Flight Type</label>
+        <input type="radio" name="class" value="E" checked> Economy
+        <input type="radio" name="class" value="B"> Business
+        <input type="radio" name="class" value="F"> First Class
     <br>
-<input type="submit" name="go" value="Go">
+        <input type="submit" name="go" value="Go">
+
+    </form>
+    <br>
 
 </div>
 </body>

@@ -32,20 +32,28 @@ def flights():
     return render_template('Flights.html')
 
 
-@app.route("/showTransportation") #grab from database and display values
+@app.route("/showTransportation", methods=['POST']) #grab from database and display values
 def showTransportation():
     #send what type of thing
-    db = "Passengers"
-    select_transportation = "SELECT * FROM %s" % db
+    _transportType = request.form['transportType']
+    _from = request.form['from']
+    _to = request.form['to']
+    _departDate = request.form['departDate']
+    _returnDate = request.form['returnDate']
+    _class = request.form['class']
+
+    transportData = (_transportType, _from, _to, _departDate, _returnDate, _class)
+    print(transportData)
+
+
+    select_transportation = ("SELECT * FROM " + _transportType
+                             + " WHERE Class = '"+ str(_class)+ "';")
+    print(select_transportation)
     cursor.execute(select_transportation)
-    data = cursor.fetchall() #get data from cursor
-    return render_template('test.html', data=data) #pass data into the html
 
+    db_data = cursor.fetchall() #get data from cursor
+    return render_template('test.html', data=db_data) #pass data into the html
 
-
-@app.route('/deals')
-def deals():
-    return render_template('Deals.html')
 
 @app.route('/cruises')
 def cruises():
