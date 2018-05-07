@@ -21,7 +21,7 @@ create_passenger = ("INSERT INTO Passengers "
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template('Flights.html')
 
 @app.route('/showSignUp')
 def showSignUp():
@@ -31,9 +31,9 @@ def showSignUp():
 def transportation():
     return render_template('transportation.html')
 
-@app.route('/flights')
-def flights():
-    return render_template('Flights.html')
+# @app.route('/flights')
+# def flights():
+#     return render_template('Flights.html')
 
 @app.route('/deals')
 def deals():
