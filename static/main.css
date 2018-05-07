@@ -1,7 +1,4 @@
 body {
-<<<<<<< HEAD
-    background-image: url(http://www.birds.com/wp-content/uploads/home/bird4.jpg);
-=======
     background-image: url(https://www.marcadamus.com/images/xl/Sun-Valley.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -16,14 +13,13 @@ label {
 .btn {
     background-color: #00829b;
     border: none;
->>>>>>> richelle
 }
 
 .navbar{
     padding: 0;
     padding-top: 20px;
     
-    opacity: 0.875;
+    opacity: 0.85;
 }
 
 .card {
@@ -36,15 +32,15 @@ label {
 }
 
 .card h1{
-<<<<<<< HEAD
-    color: black;
-}
-=======
     color: #006a80;
 }
 
 .card h2 {
     font-style: oblique;
+}
+
+.second {
+    margin-top: 50px;
 }
 
 .option{
@@ -54,4 +50,3 @@ label {
 .radio {
     margin-bottom: 25px;
 }
->>>>>>> richelle
