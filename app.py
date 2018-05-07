@@ -103,16 +103,18 @@ def reviews():
     db_data = cursor.fetchall()  # get data from cursor
     return render_template('Reviews.html', data=db_data)
 
-@app.route('/confirmPayment', methods=['POST'])
+@app.route('/writeReview', methods=['GET','POST'])
 def writeReview():
-    _name = request.form['name']
-    _stars = request.form['stars']
-    _content = request.form['content']
-    review_data = (_name, _stars, _content)
-    cursor.execute(write_review, review_data)
-    cursor.execute("SELECT * FROM Reviews ORDER BY ReviewID DESC;")
-    db_data = cursor.fetchall()  # get data from cursor
-    return render_template('Reviews.html', data=db_data)
+    if request.method == 'POST':
+        _name = request.form['name']
+        _stars = request.form['rating']
+        _content = request.form['content']
+        review_data = (_name, _stars, _content)
+        cursor.execute(write_review, review_data)
+        conn.commit()
+        return render_template('WriteReview.html')
+    else:
+        return render_template('WriteReview.html')
 
 @app.route("/test", methods=['POST'])
 def test():
