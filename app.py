@@ -27,6 +27,22 @@ def index():
 def showSignUp():
     return render_template('signup.html')
 
+@app.route('/flights')
+def flights():
+    return render_template('Flights.html')
+
+@app.route('/deals')
+def deals():
+    return render_template('Deals.html')
+
+@app.route('/cruises')
+def cruises():
+    return render_template('Cruises.html')
+
+@app.route('/cars')
+def cars():
+    return render_template('Cars.html')
+
 
 @app.route('/signUp', methods=['POST'])
 def signUp():
