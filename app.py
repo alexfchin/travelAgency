@@ -18,7 +18,6 @@ cursor = conn.cursor()
 create_passenger = ("INSERT INTO Passengers "
                "(PassengerName, Email, Password, GroupName) "
                "VALUES (%s, %s, %s, %s)")
-select_transportation = ("SELECT * FROM %s")
 
 @app.route("/")
 def index():
@@ -36,11 +35,11 @@ def flights():
 @app.route("/showTransportation") #grab from database and display values
 def showTransportation():
     #send what type of thing
-
-    cur = conn.cursor()
-    cur.execute(select_transportation, "Passengers")
-    data = cur.fetchall()
-    return render_template('test.html', data=data)
+    db = "Passengers"
+    select_transportation = "SELECT * FROM %s" % db
+    cursor.execute(select_transportation)
+    data = cursor.fetchall() #get data from cursor
+    return render_template('test.html', data=data) #pass data into the html
 
 
 
