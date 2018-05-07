@@ -11,15 +11,12 @@
         <table>
         {% for item in data %}
         <tr>
-
-            <td>Name: {{item[0]}}</td>
-            <td>Stars: {{item[1]}}</td>
-            <br>
-            <td>{{item[2]}}</td>
-
+            <td>Name: {{item[1]}}</td>
+            <td>Rating: {{item[2]}}</td>
         </tr>
-        {% endfor %}
         </table>
+            <p>{{item[3]}}</p>
+        {% endfor %}
     </body>
 
 </html>
