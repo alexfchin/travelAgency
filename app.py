@@ -56,6 +56,14 @@ def login():
     else:
      return "Logged in successfully"
 
+@app.route("/showTransportation", methods=['GET']) #grab from database and display values
+def showTransportation():
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM Passengers")
+    data = cur.fetchall()
+    return render_template('template.html', data=data)
+
+
 
 @app.route("/test", methods=['POST'])
 def test():
