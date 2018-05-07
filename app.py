@@ -31,6 +31,22 @@ def showSignUp():
 def transportation():
     return render_template('transportation.html')
 
+@app.route('/flights')
+def flights():
+    return render_template('Flights.html')
+
+@app.route('/deals')
+def deals():
+    return render_template('Deals.html')
+
+@app.route('/cruises')
+def cruises():
+    return render_template('Cruises.html')
+
+@app.route('/cars')
+def cars():
+    return render_template('Cars.html')
+
 
 @app.route('/signUp', methods=['POST'])
 def signUp():
@@ -59,6 +75,14 @@ def login():
      return "Username or Password is wrong"
     else:
      return "Logged in successfully"
+
+@app.route("/showTransportation", methods=['GET']) #grab from database and display values
+def showTransportation():
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM Passengers")
+    data = cur.fetchall()
+    return render_template('template.html', data=data)
+
 
 
 @app.route("/test", methods=['POST'])

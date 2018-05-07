@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flights</title>
+    <link href="../static/main.css" rel="stylesheet">
+</head>
+<body>
+<h1>Flights</h1>
+
+
+<ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Flights.html">Flights</a></li>
+    <li><a href="Cruises.html">Cruise</a></li>
+    <li><a href="Cars.html">Cars</a></li>
+    <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">More</a>
+        <div class="dropdown-content">
+            <a href="Deals.html">Deals</a>
+            <a href="Reviews.html">Reviews</a>
+        </div>
+    </li>
+</ul>
+
+<div>
+    <label>Starting Point</label>
+    <select name="starting">
+        <option value="NY">NY</option>
+        <option value="LA">LA</option>
+    </select>
+
+    <label>Destination</label>
+    <select name="destination">
+        <option value="NY">NY</option>
+        <option value="LA">LA</option>
+    </select>
+    <br>
+    <label>Depart Date</label>
+    <input type="date" name="departdate">
+    <label>Return Date</label>
+    <input type="date" name="returndate">
+    <br>
+    <label>Flight Type</label>
+    <form>
+  <input type="radio" name="flighttype" value="Economy" checked> Economy
+  <input type="radio" name="flighttype" value="Business"> Business
+  <input type="radio" name="flighttype" value="First Class"> First Class
+        <input type="radio" name="flighttype" value="PremEco"> Premium Economy
+</form>
+    <br>
+<input type="submit" name="go" value="Go">
+
+</div>
+</body>
+</html>
