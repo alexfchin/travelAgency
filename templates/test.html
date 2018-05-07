@@ -17,12 +17,11 @@
             <th>Price</th>
             <th>Class</th>
         </tr>
-        {{request.form.transportType}}
 
         {% for item in data %}
         <tr>
             <form action="/payment" method="POST">
-                <input name="trasnportType" type="hidden" value={{request.form.transportType}}>
+                <input name="transportType" type="hidden" value={{request.form.transportType}}>
                 <input name="transportID" type="hidden" value={{item[0]}}>
 
                 <td>{{item[0]}}</td>

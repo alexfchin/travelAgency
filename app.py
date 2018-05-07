@@ -56,8 +56,9 @@ def showTransportation():
 
 @app.route('/payment', methods=['POST'])
 def payment():
-    _id = request.form['id']
-    print(_id)
+    _transportationType = request.form['transportType']
+    _transportationID = request.form['transportID']
+    print(_transportationType + "    " + _transportationID)
     return render_template('Payment.html')
 
 @app.route('/confirmPayment', methods=['POST'])
