@@ -1,28 +1,25 @@
+
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Reviews</title>
-    <link href="../static/main.css" rel="stylesheet">
-
-</head>
-<body>
-<h1>Reviews</h1>
-<ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="Flights.html">Flights</a></li>
-    <li><a href="Cruises.html">Cruise</a></li>
-    <li><a href="Cars.html">Cars</a></li>
-    <li class="dropdown">
-        <a href="javascript:void(0)" class="dropbtn">More</a>
-        <div class="dropdown-content">
-            <a href="Deals.html">Deals</a>
-            <a href="Reviews.html">Reviews</a>
-        </div>
-    </li>
-</ul>
+    <head>
+        <title>test</title>
+    </head>
 
 
-        <p> review comments go here along with group names and people in the groups</p>
 
-</body>
+    <body>
+        <table>
+        {% for item in data %}
+        <tr>
+
+            <td>Name: {{item[0]}}</td>
+            <td>Stars: {{item[1]}}</td>
+            <br>
+            <td>{{item[2]}}</td>
+
+        </tr>
+        {% endfor %}
+        </table>
+    </body>
+
 </html>

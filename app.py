@@ -21,6 +21,10 @@ create_passenger = ("INSERT INTO Passengers "
 write_review = ("INSERT INTO Reviews "
                "(Name, Stars, Content) "
                "VALUES (%s, %s, %s)")
+hotel_reservation = ("INSERT INTO Reservations "
+                     "(PassengerID, Type, StartDate, EndDate) "
+                     "VALUES (%s, %s, %s, %s)")
+
 @app.route("/")
 def index():
     return render_template('index.html')
@@ -54,7 +58,7 @@ def showTransportation():
     cursor.execute(select_transportation)
 
     db_data = cursor.fetchall() #get data from cursor
-    return render_template('test.html', data=db_data) #pass data into the html
+    return render_template('ShowTransportation.html', data=db_data) #pass data into the html
 
 @app.route('/payment', methods=['POST'])
 def payment():
@@ -88,11 +92,14 @@ def reviews():
         _content = request.form['content']
         review_data = (_name, _stars, _content)
         cursor.execute(write_review, review_data)
-
-        return render_template('Reviews.html')
+        cursor.execute("SELECT * FROM Reviews ORDER BY ReviewID DESC;")
+        db_data = cursor.fetchall()  # get data from cursor
+        return render_template('Reviews.html', data=db_data)
     else:
         #just show the reviews
-        return render_template('Reviews.html')
+        cursor.execute("SELECT * FROM Reviews ORDER BY ReviewID DESC;")
+        db_data = cursor.fetchall()  # get data from cursor
+        return render_template('Reviews.html', data=db_data)
 
 
 
