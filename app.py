@@ -17,13 +17,13 @@ cursor = conn.cursor()
 
 create_passenger = ("INSERT INTO Passengers "
                "(Name, CardNumber, ExpDate, SVC, TransportationType, TransportationID) "
-               "VALUES (%s, %s, %s, %s, %s, %s)")
+            b   "VALUES (%s, %s, %s, %s, %s, %s)")
 write_review = ("INSERT INTO Reviews "
                "(Name, Stars, Content) "
                "VALUES (%s, %s, %s)")
 hotel_reservation = ("INSERT INTO Reservations "
-                     "(ReservationID, HotelName, Location, Name, CardNumber, ExpDate, SVC) "
-                     "VALUES (%s, %s, %s, %s, %s, %s, %s)")
+                     "(HotelName, Location, Name, CardNumber, ExpDate, SVC) "
+                     "VALUES (%s, %s, %s, %s, %s, %s)")
 
 @app.route("/")
 def index():
@@ -76,7 +76,7 @@ def payment():
     return render_template('Payment.html')
 
 @app.route('/hotelPayment', methods=['POST'])
-def payment():
+def hotelPayment():
     return render_template('HotelPayment.html')
 
 
