@@ -5,9 +5,10 @@
     <title>Reviews - CL Squared Travel Agency</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 
     <link rel="stylesheet" type = "text/css" href="../static/main.css">
-    <link rel="stylesheet" type = "text/css" href="../static/home.css">
 
     <link rel="stylesheet" type = "text/css" href="../static/revcss.css">
 
@@ -17,24 +18,23 @@
 </head>
 
 <body class="reviews">
-    <div class="container">
-        <div class="header">
-            <nav class="navbar navbar-light justify-content-between">
-                <ul class="nav nav-tabs">
-                    <li class="nav-item"><a class="nav-link active" href="Flights.html">Home</a></li>
+    <div class="header">
+        <nav class="navbar justify-content-between">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link active" href="Flights.html">Flights</a></li>
 
-                    <li class="nav-item"><a class="nav-link active" href="Cruises.html">Cruises</a></li>
+                <li class="nav-item"><a class="nav-link active" href="Cruises.html">Cruises</a></li>
 
-                    <li class="nav-item"><a class="nav-link active" href="#">Reviews</a></li>
-                </ul>
-            </nav>
-        </div>
-
+                <li class="nav-item"><a class="nav-link active" href="#">Reviews</a></li>
+            </ul>
+        </nav>
         <div class="card">
-            <h1>CL Squared Travel Agency</h1>
+            <h1>CL<sup>2</sup> Travel Agency</h1>
             <h2>Reviews</h2>
         </div>
+    </div>
 
+    <div class="container">
         <div class="card second">
             <table id="reviews" style="width:100%">
                 {% for item in data %}
