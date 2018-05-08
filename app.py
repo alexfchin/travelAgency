@@ -43,7 +43,7 @@ def hotels():
 
 @app.route('/showHotels', methods=['POST'])
 def reservation():
-
+    render_template(ShowHotels.html)
 
 
 @app.route("/showTransportation", methods=['POST']) #grab from database and display values
