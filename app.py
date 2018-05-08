@@ -22,8 +22,8 @@ write_review = ("INSERT INTO Reviews "
                "(Name, Stars, Content) "
                "VALUES (%s, %s, %s)")
 hotel_reservation = ("INSERT INTO Reservations "
-                     "(PassengerID, Type, StartDate, EndDate) "
-                     "VALUES (%s, %s, %s, %s)")
+                     "(ReservationID, HotelName, Location, Name, CardNumber, ExpDate, SVC) "
+                     "VALUES (%s, %s, %s, %s, %s, %s, %s)")
 
 @app.route("/")
 def index():
@@ -43,8 +43,14 @@ def hotels():
 
 @app.route('/showHotels', methods=['POST'])
 def reservation():
-    render_template(ShowHotels.html)
+    #send what type of thing
+    _location = request.form['location']
 
+    select_hotel = ("SELECT * FROM Hotels WHERE Location = '"+ str(_location)+ "';")
+    cursor.execute(select_hotel)
+    print(select_hotel)
+    db_data = cursor.fetchall() #get data from cursor
+    return render_template('showHotel.html', data=db_data)
 
 @app.route("/showTransportation", methods=['POST']) #grab from database and display values
 def showTransportation():
@@ -67,9 +73,25 @@ def showTransportation():
 
 @app.route('/payment', methods=['POST'])
 def payment():
-    _transportationType = request.form['transportType']
-    _transportationID = request.form['transportID']
     return render_template('Payment.html')
+
+@app.route('/hotelPayment', methods=['POST'])
+def confirmHotel():
+    _hotelName = request.form['hotelName']
+    _location = request.form['hotelLocation']
+    _cardNumber = request.form['cardNumber']
+    _cardHolder = request.form['cardHolder']
+    _month = request.form['month']
+    _year = request.form['year']
+    _svc = request.form['svc']
+
+    _expDate = _month + '/' + _year
+    reservation_data = (_hotelName, _location, _cardHolder, _cardNumber, _expDate, _svc)
+    cursor.execute(hotel_reservation,reservation_data)
+    conn.commit() #commits to the db
+
+
+    return render_template('ConfirmPayment.html')
 
 @app.route('/confirmPayment', methods=['POST'])
 def confirmPayment(): #add passenger to sql db
