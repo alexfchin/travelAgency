@@ -19,7 +19,7 @@
 
         {% for item in data %}
         <tr>
-            <form action="/hotelpayment" method="POST">
+            <form action="/hotelPayment" method="POST">
 
                 <input name="hotelName" type="hidden" value={{item[0]}}>
                 <input name="hotelLocation" type="hidden" value={{item[1]}}>

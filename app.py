@@ -76,6 +76,11 @@ def payment():
     return render_template('Payment.html')
 
 @app.route('/hotelPayment', methods=['POST'])
+def payment():
+    return render_template('HotelPayment.html')
+
+
+@app.route('/confirmHotel', methods=['POST'])
 def confirmHotel():
     _hotelName = request.form['hotelName']
     _location = request.form['hotelLocation']
