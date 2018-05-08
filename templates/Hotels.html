@@ -1,47 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Flights</title>
-    <link href="../static/main.css" rel="stylesheet">
+    <title>CL Squared Travel Agency</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+    <link rel="stylesheet" type = "text/css" href="../static/main.css">
+
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
-<body>
-<h1>Flights</h1>
 
+<body class="flights">
+    <div class="header">
+        <nav class="navbar navbar-light justify-content-between">
+            <ul class="nav">
 
-<ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="Flights.html">Flights</a></li>
-    <li><a href="Cruises.html">Cruise</a></li>
-    <li><a href="Cars.html">Cars</a></li>
-    <li class="dropdown">
-        <a href="javascript:void(0)" class="dropbtn">More</a>
-        <div class="dropdown-content">
-            <a href="Deals.html">Deals</a>
-            <a href="Reviews.html">Reviews</a>
+                <li class="nav-item"><a class="nav-link active" href="http://18.191.10.163/flights">Flights</a></li>
+                <li class="nav-item"><a class="nav-link active" href="http://18.191.10.163/cruises">Cruises</a></li>
+                <li class="nav-item"><a class="nav-link active" href="http://18.191.10.163/hotels">Hotel</a></li>
+                <li class="nav-item"><a class="nav-link active" href="http://18.191.10.163/reviews">Reviews</a></li>
+            </ul>
+        </nav>
+        <div class="card">
+            <h1>CL<sup>2</sup> Travel Agency</h1>
+            <h2>Hotels</h2>
         </div>
-    </li>
-</ul>
+    </div>
 
-<div>
-    <form action="/showHotels" method="POST">
-        <label>Location</label>
-        <select name="location">
-            <option value="NY">NY</option>
-            <option value="LA">LA</option>
-        </select>
+    <div class="container">
 
-    <br>
+        <div class="card second">
 
-        <label>Check In</label>
-        <input type="date" name="in">
-        <label>Check Out</label>
-        <input type="date" name="out">
-    <br>
-        <input type="submit" name="go" value="Go">
+            <div>
+                <form action="/showHotels" method="POST">
+                    <label>Location</label>
+                    <select name="location">
+                        <option value="NY">NY</option>
+                        <option value="LA">LA</option>
+                    </select>
 
-    </form>
-    <br>
+                    <label>Check In</label>
+                        <input type="date" name="in">
+                    <label>Check Out</label>
+                        <input type="date" name="out">
 
-</div>
+<!--                    <input type="submit" name="go" value="Go">-->
+                    <button type="submit" name = "go" value = "Go" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; hi</p>
+        </footer>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
 </html>
