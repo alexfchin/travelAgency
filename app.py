@@ -17,7 +17,7 @@ cursor = conn.cursor()
 
 create_passenger = ("INSERT INTO Passengers "
                "(Name, CardNumber, ExpDate, SVC, TransportationType, TransportationID) "
-            b   "VALUES (%s, %s, %s, %s, %s, %s)")
+               "VALUES (%s, %s, %s, %s, %s, %s)")
 write_review = ("INSERT INTO Reviews "
                "(Name, Stars, Content) "
                "VALUES (%s, %s, %s)")
