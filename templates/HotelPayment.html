@@ -19,17 +19,17 @@
     <div class="container">
       <div class="jumbotron">
         <h2>Payment</h2>
-        <form action = "/confirmPayment" method = "POST">
-            <input name="transportType" type="hidden" value={{request.form.transportType}}>
-            <input name="transportID" type="hidden" value={{request.form.transportID}}>
+        <form action = "/confirmHotel" method = "POST">
+            <input name="hotelName" type="hidden" value={{request.form.hotelName}}>
+            <input name="hotelLocation" type="hidden" value={{request.form.hotelLocation}}>
 
-            <input type="text" name="cardNumber" maxlength="16" required="required" placeholder="Card Number" onfocus="this.value=''">
+            <input type="text" name="cardNumber" required="required" placeholder="Card Number" onfocus="this.value=''">
             <input type="text" name="cardHolder" required="required" placeholder="Cardholder's Name" onfocus="this.value=''">
             <br>
             <h4>Expirary Date</h4>
-            <input type="text" name="month" required="required" maxlength="2" placeholder="Month" onfocus="this.value=''">
-            <input type="text" name="year" maxlength="4" placeholder="Year" onfocus="this.value=''">
-            <input type="text" name="svc" maxlength="3" placeholder="Security Code" onfocus="this.value=''">
+            <input type="text" name="month" required="required" placeholder="Month" onfocus="this.value=''">
+            <input type="text" name="year" placeholder="Year" onfocus="this.value=''">
+            <input type="text" name="svc" placeholder="Security Code" onfocus="this.value=''">
 
             <button class="btn btn-lg btn-primary btn-block" type="submit" value="submit">Payment</button>
         </form>

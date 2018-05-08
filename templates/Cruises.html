@@ -37,74 +37,75 @@
     <div class="container">
         
         <div class="second">
-<!--            <form>-->
-            <div class="option">
-                <label>Starting Point</label>
-                <select class="form-control" name = "starting">
-                    <option value = "NY">NY</option>
-                    <option value = "LA">LA</option>
-                </select>
-            </div>
+            <form action="/showTransportation" method="POST">
+                <input name="transportType" type="hidden" value="Cruises">
+    <!--            <form>-->
+                <div class="option">
+                    <label>Starting Point</label>
+                    <select name="from">
+                        <option value="NY">NY</option>
+                        <option value="LA">LA</option>
+                    </select>
+                </div>
 
-            <div  class="option">
-                <label>Destination</label>
-                <select class="form-control" name = "destination">
-                    <option value = "NY">NY</option>
-                    <option value = "LA">LA</option>
-                </select>
-            </div>
-            
-            <div class="option">
-                <label>Depart Date</label>
-                <div class="row">
-                    <div class='col-sm-6'>
-                        <div class="form-group">
-                            <div class='input-group date' id='datetimepicker1'>
-                                <input type='date' name="departuredate" class="form-control" />
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
+                <div  class="option">
+                    <label>Destination</label>
+                    <select name="to">
+                        <option value="NY">NY</option>
+                        <option value="LA">LA</option>
+                    </select>
+
+                </div>
+
+                <div class="option">
+                    <label>Depart Date</label>
+                    <div class="row">
+                        <div class='col-sm-6'>
+                            <div class="form-group">
+                                <div class='input-group date' id='datetimepicker1'>
+                                    <input type="date" name="departDate">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-                
-            <div class="option">
-                <label>Return Date</label>
-                <div class="row">
-                    <div class='col-sm-6'>
-                        <div class="form-group">
-                            <div class='input-group date' id='datetimepicker1'>
-                                <input type='date' name = "returndate" class="form-control" />
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
+
+                <div class="option">
+                    <label>Return Date</label>
+                    <div class="row">
+                        <div class='col-sm-6'>
+                            <div class="form-group">
+                                <div class='input-group date' id='datetimepicker1'>
+                                    <input type="date" name="returnDate">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-                
-            <div  class="option">
-                <label>Class</label>
-                <form>
-                    <div class=radio>
-                        <input type="radio" name="flighttype" value="Economy" checked> Economy
-                    </div>
-                    <div class=radio>
-                        <input type="radio" name="flighttype" value="Business"> Business
-                    </div>
-                    <div class=radio>
-                        <input type="radio" name="flighttype" value="First Class"> First Class
-                    </div>
-                    <div class=radio>
-                        <input type="radio" name="flighttype" value="PremEco"> Premium Economy
-                    </div>
-                </form>
-            </div>
 
-            <button type="submit" name = "go" value = "Go" class="btn btn-primary">Submit</button>
+                <div  class="option">
+                    <label>Class</label>
+                        <div class=radio>
+                            <input type="radio" name="class" value="E" checked> Economy
+                        </div>
+                        <div class=radio>
+                            <input type="radio" name="class" value="B"> Business
+                        </div>
+                        <div class=radio>
+                            <input type="radio" name="class" value="F"> First Class
+                        </div>
+                </div>
+
+<!--                    <input type="submit" name="go" value="Go">-->
+
+                <button type="submit" name = "go" value = "Go" class="btn btn-primary">Submit</button>
+            </form>
         </div>
 
         <footer class="footer">

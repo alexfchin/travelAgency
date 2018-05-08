@@ -22,8 +22,8 @@ write_review = ("INSERT INTO Reviews "
                "(Name, Stars, Content) "
                "VALUES (%s, %s, %s)")
 hotel_reservation = ("INSERT INTO Reservations "
-                     "(PassengerID, Type, StartDate, EndDate) "
-                     "VALUES (%s, %s, %s, %s)")
+                     "(HotelName, Location, Name, CardNumber, ExpDate, SVC) "
+                     "VALUES (%s, %s, %s, %s, %s, %s)")
 
 @app.route("/")
 def index():
@@ -37,9 +37,9 @@ def showSignUp():
 def transportation():
     return render_template('transportation.html')
 
-# @app.route('/flights')
-# def flights():
-#     return render_template('Flights.html')
+@app.route('/flights')
+def flights():
+    return render_template('Flights.html')
 
 @app.route('/cruises')
 def cruise():
@@ -47,7 +47,18 @@ def cruise():
 
 @app.route('/hotels')
 def hotels():
-    return render_template('Hotels.html'
+    return render_template('Hotels.html')
+
+@app.route('/showHotels', methods=['POST'])
+def reservation():
+    #send what type of thing
+    _location = request.form['location']
+
+    select_hotel = ("SELECT * FROM Hotels WHERE Location = '"+ str(_location)+ "';")
+    cursor.execute(select_hotel)
+    print(select_hotel)
+    db_data = cursor.fetchall() #get data from cursor
+    return render_template('showHotel.html', data=db_data)
 
 @app.route("/showTransportation", methods=['POST']) #grab from database and display values
 def showTransportation():
@@ -59,9 +70,6 @@ def showTransportation():
     _returnDate = request.form['returnDate']
     _class = request.form['class']
 
-    transportData = (_transportType, _from, _to, _departDate, _returnDate, _class)
-
-
     select_transportation = ("SELECT * FROM " + _transportType
                              + " WHERE Class = '"+ str(_class)+ "';")
     cursor.execute(select_transportation)
@@ -69,12 +77,34 @@ def showTransportation():
     db_data = cursor.fetchall() #get data from cursor
     return render_template('ShowTransportation.html', data=db_data) #pass data into the html
 
+
+
 @app.route('/payment', methods=['POST'])
 def payment():
-    _transportationType = request.form['transportType']
-    _transportationID = request.form['transportID']
-    print(_transportationType + "    " + _transportationID)
     return render_template('Payment.html')
+
+@app.route('/hotelPayment', methods=['POST'])
+def hotelPayment():
+    return render_template('HotelPayment.html')
+
+
+@app.route('/confirmHotel', methods=['POST'])
+def confirmHotel():
+    _hotelName = request.form['hotelName']
+    _location = request.form['hotelLocation']
+    _cardNumber = request.form['cardNumber']
+    _cardHolder = request.form['cardHolder']
+    _month = request.form['month']
+    _year = request.form['year']
+    _svc = request.form['svc']
+
+    _expDate = _month + '/' + _year
+    reservation_data = (_hotelName, _location, _cardHolder, _cardNumber, _expDate, _svc)
+    cursor.execute(hotel_reservation,reservation_data)
+    conn.commit() #commits to the db
+
+
+    return render_template('ConfirmPayment.html')
 
 @app.route('/confirmPayment', methods=['POST'])
 def confirmPayment(): #add passenger to sql db
@@ -93,29 +123,26 @@ def confirmPayment(): #add passenger to sql db
 
     return render_template('ConfirmPayment.html')
 
-@app.route("/reviews", methods=['GET','POST'])
+@app.route("/reviews")
 def reviews():
+    #just show the reviews
+    cursor.execute("SELECT * FROM Reviews ORDER BY ReviewID DESC;")
+    db_data = cursor.fetchall()  # get data from cursor
+    return render_template('Reviews.html', data=db_data)
+
+@app.route('/writeReview', methods=['GET','POST'])
+def writeReview():
     if request.method == 'POST':
         _name = request.form['name']
-        _stars = request.form['stars']
+        _stars = request.form['rating']
         _content = request.form['content']
         review_data = (_name, _stars, _content)
         cursor.execute(write_review, review_data)
-        cursor.execute("SELECT * FROM Reviews ORDER BY ReviewID DESC;")
-        db_data = cursor.fetchall()  # get data from cursor
-        return render_template('Reviews.html', data=db_data)
+        conn.commit()
+        return render_template('WriteReview.html')
     else:
-        #just show the reviews
-        cursor.execute("SELECT * FROM Reviews ORDER BY ReviewID DESC;")
-        db_data = cursor.fetchall()  # get data from cursor
-        return render_template('Reviews.html', data=db_data)
+        return render_template('WriteReview.html')
 
 
-
-@app.route("/test", methods=['POST'])
-def test():
-    _name = request.form['name']
-    print(_name)
-    return "OK"
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True)
