@@ -29,7 +29,10 @@ hotel_reservation = ("INSERT INTO Reservations "
 def index():
     return render_template('Flights.html')
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> richelle
 @app.route('/flights')
 def flights():
     return render_template('Flights.html')
@@ -42,10 +45,9 @@ def showSignUp():
 def transportation():
     return render_template('transportation.html')
 
-# @app.route('/flights')
-# def flights():
-#     return render_template('Flights.html')
->>>>>>> richelle
+@app.route('/flights')
+def flights():
+    return render_template('Flights.html')
 
 @app.route('/cruises')
 def cruise():
@@ -53,7 +55,7 @@ def cruise():
 
 @app.route('/hotels')
 def hotels():
-    return render_template('Hotels.html'
+    return render_template('Hotels.html')
 
 @app.route('/payment', methods=['POST'])
 def payment():
