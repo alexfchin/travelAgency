@@ -1,7 +1,7 @@
 body {
-    background-image: url(https://www.marcadamus.com/images/xl/Sun-Valley.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed; 
 }
 
 label {
@@ -13,6 +13,19 @@ label {
 .btn {
     background-color: #00829b;
     border: none;
+}
+
+.cruises {
+    background-image: url(http://wallpoper.com/images/00/44/04/02/cruise-ship-deck-sunset_00440402.jpg);   
+}
+
+
+.flights {
+    background-image: url(https://amaryroad.com/wp-content/uploads/2017/10/how-to-book-the-cheapest-flight-to-everywhere-in-the-world.jpg);    
+}
+
+.reviews {
+    background-image: url(https://www.marcadamus.com/images/xl/Sun-Valley.jpg);
 }
 
 .navbar{

@@ -47,7 +47,7 @@ def cruise():
 
 @app.route('/hotels')
 def hotels():
-    return render_template('Hotels.html')
+    return render_template('Hotels.html'
 
 @app.route("/showTransportation", methods=['POST']) #grab from database and display values
 def showTransportation():
