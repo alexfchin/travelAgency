@@ -29,17 +29,9 @@ hotel_reservation = ("INSERT INTO Reservations "
 def index():
     return render_template('Flights.html')
 
-@app.route('/showSignUp')
-def showSignUp():
-    return render_template('signup.html')
-
 @app.route('/flights')
 def flights():
     return render_template('Flights.html')
-
-@app.route('/transportation')
-def transportation():
-    return render_template('transportation.html')
 
 @app.route('/cruises')
 def cruise():
@@ -48,6 +40,10 @@ def cruise():
 @app.route('/hotels')
 def hotels():
     return render_template('Hotels.html')
+
+@app.route('/showHotels', methods=['POST'])
+def reservation():
+
 
 
 @app.route("/showTransportation", methods=['POST']) #grab from database and display values
@@ -60,9 +56,6 @@ def showTransportation():
     _returnDate = request.form['returnDate']
     _class = request.form['class']
 
-    transportData = (_transportType, _from, _to, _departDate, _returnDate, _class)
-
-
     select_transportation = ("SELECT * FROM " + _transportType
                              + " WHERE Class = '"+ str(_class)+ "';")
     cursor.execute(select_transportation)
@@ -70,7 +63,6 @@ def showTransportation():
     db_data = cursor.fetchall() #get data from cursor
     return render_template('ShowTransportation.html', data=db_data) #pass data into the html
 
-@app.route("/showTransportation", methods=['POST']) #grab from database and display values
 
 
 @app.route('/payment', methods=['POST'])
@@ -116,10 +108,6 @@ def writeReview():
     else:
         return render_template('WriteReview.html')
 
-@app.route("/test", methods=['POST'])
-def test():
-    _name = request.form['name']
-    print(_name)
-    return "OK"
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True)
