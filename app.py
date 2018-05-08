@@ -41,6 +41,16 @@ def cruise():
 def hotels():
     return render_template('Hotels.html')
 
+
+@app.route('/payment', methods=['POST'])
+def payment():
+    return render_template('Payment.html')
+
+@app.route('/hotelPayment', methods=['POST'])
+def hotelPayment():
+    return render_template('HotelPayment.html')
+
+
 @app.route('/showHotels', methods=['POST'])
 def reservation():
     #send what type of thing
@@ -70,14 +80,6 @@ def showTransportation():
     return render_template('ShowTransportation.html', data=db_data) #pass data into the html
 
 
-
-@app.route('/payment', methods=['POST'])
-def payment():
-    return render_template('Payment.html')
-
-@app.route('/hotelPayment', methods=['POST'])
-def hotelPayment():
-    return render_template('HotelPayment.html')
 
 
 @app.route('/confirmHotel', methods=['POST'])
