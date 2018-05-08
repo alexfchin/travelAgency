@@ -1,10 +1,9 @@
 body {
-<<<<<<< HEAD
-    background-image: url(http://www.birds.com/wp-content/uploads/home/bird4.jpg);
-=======
-    background-image: url(https://www.marcadamus.com/images/xl/Sun-Valley.jpg);
+    font-family: 'Source Sans Pro', sans-serif;
+    
+    background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed; 
 }
 
 label {
@@ -13,38 +12,72 @@ label {
     color: #006a80;
 }
 
+footer {
+    color: lightgrey;
+}
+
 .btn {
     background-color: #00829b;
     border: none;
->>>>>>> richelle
+}
+
+.cruises {
+    background-image: url(http://wallpoper.com/images/00/44/04/02/cruise-ship-deck-sunset_00440402.jpg);   
+}
+
+
+.flights {
+    background-image: url(https://amaryroad.com/wp-content/uploads/2017/10/how-to-book-the-cheapest-flight-to-everywhere-in-the-world.jpg);    
+}
+
+.reviews {
+    background-image: url(https://www.marcadamus.com/images/xl/Sun-Valley.jpg);
 }
 
 .navbar{
     padding: 0;
-    padding-top: 20px;
-    
-    opacity: 0.875;
+    opacity: 0.70;
+    background-color: white;
+}
+
+.nav-link {
+    color: #006a80;
+}
+
+.nav-item:hover{
+    background-color: #006a80;
+    opacity: 100%;
+}
+
+.nav-link:hover{
+    color: white;
+    opacity: 100%;
 }
 
 .card {
-    border-radius: 5px;
-    padding: 50px;
-
-    background-color: white;
-    opacity: 0.875;
+    border-radius: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 50px;
+    padding-left: 50px;
 
 }
 
 .card h1{
-<<<<<<< HEAD
-    color: black;
-}
-=======
     color: #006a80;
 }
 
 .card h2 {
     font-style: oblique;
+}
+
+.second {
+    
+    background-color: white;
+    opacity: 0.875;
+    padding: 40px;
+    margin: 10%;
+
 }
 
 .option{
@@ -54,4 +87,3 @@ label {
 .radio {
     margin-bottom: 25px;
 }
->>>>>>> richelle
