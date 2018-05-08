@@ -73,10 +73,6 @@ def reservation():
 def showTransportation():
     #send what type of thing
     _transportType = request.form['transportType']
-    _from = request.form['from']
-    _to = request.form['to']
-    _departDate = request.form['departDate']
-    _returnDate = request.form['returnDate']
     _class = request.form['class']
 
     select_transportation = ("SELECT * FROM " + _transportType
